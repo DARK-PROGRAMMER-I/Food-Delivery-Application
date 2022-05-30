@@ -77,10 +77,9 @@ class _HomePageBodyState extends State<HomePageBody> {
         ),
         SizedBox(height: Dimensions.height30,),
         // Items
-        Container(
-          height: 700,
-          child: ListView.builder(
+         ListView.builder(
             physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
               itemCount: 10,
               itemBuilder: (context , index){
               return Container(
@@ -119,7 +118,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                           padding: EdgeInsets.only(left: Dimensions.width10, top: Dimensions.height5),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            // mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               BigText('Nutrius Fruit Meal for Dinner'),
                               SizedBox(height: Dimensions.height5,),
@@ -158,7 +157,6 @@ class _HomePageBodyState extends State<HomePageBody> {
                 ),
               );
           }),
-        )
       ],
     );
   }

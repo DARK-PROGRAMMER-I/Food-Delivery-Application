@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/home/homePageBody.dart';
+import 'package:food_delivery_app/pages/home/homePageBody.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
@@ -69,7 +69,8 @@ class _FoodHomePageState extends State<FoodHomePage> {
             ),
             Expanded(
                 child: SingleChildScrollView(
-                  child: HomePageBody(),
+                physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                child: HomePageBody(),
                 ))
 
           ],
