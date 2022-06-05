@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
+import 'package:food_delivery_app/widgets/app_column.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/icon_and_text.dart';
 import 'package:food_delivery_app/widgets/icons_back.dart';
@@ -68,67 +69,59 @@ class _PopularFoodPageState extends State<PopularFoodPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                          margin: EdgeInsets.only(top: Dimensions.height20),
-                          child: BigText("Noodles")
-                      ),
-                      SizedBox(
-                        height: Dimensions.height15,
-                      ),
-                      Row(
-                        children: [
-                          Wrap(
-                            children: List.generate( 5, (index) =>
-                            Icon(Icons.star, color: AppColors.mainColor, size: Dimensions.height12,)
-                            ),
-                          ),
-                          Wrap(
-                            children: [
-                              SizedBox(width: Dimensions.width15,),
-                              SmallText("4.5", Dimensions.height20, ),
-                              SizedBox(width:  Dimensions.width15,),
-                              SmallText("1287  Comments", Dimensions.height20, ),
-                            ],
-                          ),
-                        ]
-                      ),
-                      SizedBox(height: Dimensions.height20
-                        ,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconAndText(
-                            iconSize: Dimensions.icon20,
-                            icon: Icons.circle,
-                            text: 'Normal',
-                            iconColor: AppColors.yellowColor,
-
-                          ),
-                          IconAndText(
-                            iconSize: Dimensions.icon20,
-                            icon: Icons.place,
-                            text: '1.7 km',
-                            iconColor: AppColors.mainColor,
-
-                          ),IconAndText(
-                            iconSize: Dimensions.icon20,
-                            icon: Icons.timer,
-                            text: '18mins',
-                            iconColor: Colors.redAccent,
-
-                          )
-                        ],
-                      ),
-                    SizedBox(height: Dimensions.height45,),
-                      BigText('Introduce', AppColors.textColor)
+                      AppColumn(text: 'Noodles', ),
+                      SizedBox(height: Dimensions.height20,),
+                      BigText(name: 'Introduce'),
                     ],
-                  ),
+                  )
 
                 )
 
             )
 
           ],),
+
+        bottomNavigationBar: Container(
+          height: Dimensions.height120,
+          padding: EdgeInsets.symmetric(horizontal: Dimensions.width20, vertical: Dimensions.height30),
+          decoration: BoxDecoration(
+            color: AppColors.buttonBackgroundColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(Dimensions.radius20 * 2),
+              topRight: Radius.circular(Dimensions.radius20 * 2)
+            )
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: Dimensions.width100,
+                height: Dimensions.height100,
+                decoration: BoxDecoration(
+                  color: AppColors.yellowColor,
+                  borderRadius: BorderRadius.circular(Dimensions.radius20)
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(Icons.maximize_rounded, size: Dimensions.icon20,),
+                    BigText(name: '0', size: Dimensions.height45,),
+                    Icon(Icons.add, size: Dimensions.icon20),
+
+                  ],
+                ),
+              ),
+              Container(
+                width: Dimensions.width200,
+                // height: Dimensions.height100,
+                decoration: BoxDecoration(
+                    color: AppColors.mainColor,
+                    borderRadius: BorderRadius.circular(Dimensions.radius20)
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

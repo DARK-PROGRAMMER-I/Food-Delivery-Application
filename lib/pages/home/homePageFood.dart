@@ -31,7 +31,7 @@ class _FoodHomePageState extends State<FoodHomePage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        BigText( 'Pakistan', AppColors.mainColor),
+                        BigText( name: 'Pakistan', color: AppColors.mainColor),
 
                         Row(
                           // crossAxisAlignment: CrossAxisAlignment.start,

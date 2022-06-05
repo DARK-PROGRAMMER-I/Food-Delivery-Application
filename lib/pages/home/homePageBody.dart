@@ -63,7 +63,7 @@ class _HomePageBodyState extends State<HomePageBody> {
           margin: EdgeInsets.only(left: Dimensions.width20),
           child: Row(
             children: [
-              BigText('Popular '),
+              BigText(name: 'Popular '),
               SizedBox(width: Dimensions.width5,),
               Container(
                   margin: EdgeInsets.only(bottom: 2),
@@ -120,7 +120,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              BigText('Nutrius Fruit Meal for Dinner'),
+                              BigText(name: 'Nutrius Fruit Meal for Dinner'),
                               SizedBox(height: Dimensions.height5,),
                               SmallText('With chines characteristics'),
                               SizedBox(height: Dimensions.height5,),
@@ -210,7 +210,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BigText('Chinese Food'),
+                      BigText(name: 'Chinese Food'),
                       SizedBox(height: Dimensions.height20,),
                       Row(
                         children: [

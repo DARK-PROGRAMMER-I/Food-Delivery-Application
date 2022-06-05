@@ -6,7 +6,7 @@ class BigText extends StatelessWidget {
   String name;
   Color color ;
   double size = 0;
-  BigText(this.name , [this.color = const Color(0xFF424242),this.size = 0]);
+  BigText({ required this.name, this.color = const Color(0xFF424242), this.size = 0});
 
   @override
   Widget build(BuildContext context) {

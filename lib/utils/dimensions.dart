@@ -14,10 +14,14 @@ class Dimensions{
   static double height12 = pageHeight /71.8;
   static double height18 = pageHeight /47.8;
   static double height45 = pageHeight /19.1;
+  static double height60 = pageHeight /14.3;
+  static double height65 = pageHeight /13.2;
+  static double height70 = pageHeight /12.3;
   static double height40 = pageHeight /21.55;
   static double height30 = pageHeight /28.6;
   static double height35 = pageHeight /24.6;
   static double height20 = pageHeight /42.2;
+  static double height25 = pageHeight /34.48;
   static double height10 = pageHeight /86;
   static double height100 = pageHeight /8.62;
   static double height120 = pageHeight /7.18;
@@ -30,7 +34,7 @@ class Dimensions{
 
 
 
-
+  static double width160 = pageHeight /5.3;
   static double width10 = pageWidth / 39.2;
   static double width30 = pageWidth / 13;
   static double width35 = pageWidth / 11.2;
