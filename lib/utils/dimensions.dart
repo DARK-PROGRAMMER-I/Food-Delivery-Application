@@ -11,6 +11,8 @@ class Dimensions{
   static double pageCommentsConatiner = pageHeight/ 6.5;
 // Height Width
   static double height15 = pageHeight /57.3;
+  static double height12 = pageHeight /71.8;
+  static double height18 = pageHeight /47.8;
   static double height45 = pageHeight /19.1;
   static double height40 = pageHeight /21.55;
   static double height30 = pageHeight /28.6;

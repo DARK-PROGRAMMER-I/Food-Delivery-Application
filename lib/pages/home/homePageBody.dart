@@ -127,20 +127,20 @@ class _HomePageBodyState extends State<HomePageBody> {
                               Row(
                                 children: [
                                   IconAndText(
-                                    iconSize: 18,
+                                    iconSize: Dimensions.icon20,
                                     icon: Icons.circle,
                                     text: 'Normal',
                                     iconColor: AppColors.yellowColor,
 
                                   ),
                                   IconAndText(
-                                    iconSize: 18,
+                                    iconSize: Dimensions.icon20,
                                     icon: Icons.place,
                                     text: '1.7km',
                                     iconColor: AppColors.mainColor,
 
                                   ),IconAndText(
-                                    iconSize: 18,
+                                    iconSize: Dimensions.icon20,
                                     icon: Icons.timer,
                                     text: '18mins',
                                     iconColor: Colors.redAccent,
@@ -216,15 +216,15 @@ class _HomePageBodyState extends State<HomePageBody> {
                         children: [
                           Wrap(
                           children: List.generate(5, (index) => Icon(
-                            Icons.star, color: AppColors.mainColor,size: 12,)),
+                            Icons.star, color: AppColors.mainColor,size: Dimensions.height12,)),
                         ),
                           Wrap(
                             spacing: 5,
                             children: [
                               SizedBox(width: Dimensions.width5,),
-                              SmallText('4.5', 12 ),
+                              SmallText('4.5', Dimensions.height12 ),
 
-                              SmallText('1287  comments', 12)
+                              SmallText('1287  comments', Dimensions.height12)
                             ],
                           )
 
@@ -236,20 +236,20 @@ class _HomePageBodyState extends State<HomePageBody> {
                         children: [ Row(
                           children: [
                             IconAndText(
-                                iconSize: 18,
+                                iconSize: Dimensions.height18,
                                 icon: Icons.circle,
                                 text: 'Normal',
                                 iconColor: AppColors.yellowColor,
 
                             ),
                             IconAndText(
-                                iconSize: 18,
+                                iconSize: Dimensions.height18,
                                 icon: Icons.place,
                                 text: '1.7km',
                                 iconColor: AppColors.mainColor,
 
                             ),IconAndText(
-                                iconSize: 18,
+                                iconSize: Dimensions.height18,
                                 icon: Icons.timer,
                                 text: '18mins',
                                 iconColor: Colors.redAccent,
