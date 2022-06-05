@@ -12,20 +12,29 @@ class Dimensions{
 // Height Width
   static double height15 = pageHeight /57.3;
   static double height45 = pageHeight /19.1;
+  static double height40 = pageHeight /21.55;
   static double height30 = pageHeight /28.6;
+  static double height35 = pageHeight /24.6;
   static double height20 = pageHeight /42.2;
   static double height10 = pageHeight /86;
   static double height100 = pageHeight /8.62;
   static double height120 = pageHeight /7.18;
   static double height200 = pageHeight /4.31;
+  static double height400 = pageHeight /2.15;
+  static double height300 = pageHeight /2.8;
+  static double height350 = pageHeight /2.4;
   static double height5 = pageHeight /172.4;
+  static double height515 = pageHeight /1.67;
+
 
 
 
   static double width10 = pageWidth / 39.2;
   static double width30 = pageWidth / 13;
+  static double width35 = pageWidth / 11.2;
   static double width25 = pageWidth / 15.6;
   static double width45 = pageWidth / 8.7;
+  static double width40 = pageWidth / 9.8;
   static double width20 = pageWidth / 19.6;
   static double width5 = pageWidth / 78.4;
   static double width15 = pageWidth / 26.1;
