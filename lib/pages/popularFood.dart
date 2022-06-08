@@ -27,7 +27,7 @@ class _PopularFoodPageState extends State<PopularFoodPage> {
               right: 0,
                 left: 0,
                 child: Container(
-                  height: Dimensions.height350,
+                  height: Dimensions.height300,
                   width: double.maxFinite,
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -46,11 +46,11 @@ class _PopularFoodPageState extends State<PopularFoodPage> {
                 children: [
                   IconsBack(
                     icon: Icons.arrow_back_ios,
-                    size: Dimensions.height40,
+                    size: Dimensions.height35,
                   ),
                   IconsBack(
                     icon: Icons.shopping_cart_outlined,
-                    size: Dimensions.height40,
+                    size: Dimensions.height35,
                   ),
                 ],
               ),
@@ -58,7 +58,7 @@ class _PopularFoodPageState extends State<PopularFoodPage> {
             Positioned(
                 left: 0,
                 right: 0,
-                top: Dimensions.height350 -20,
+                top: Dimensions.height300 -20,
                 child: Container(
                   height: Dimensions.height515,
                   padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
@@ -70,8 +70,8 @@ class _PopularFoodPageState extends State<PopularFoodPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppColumn(text: 'Noodles', ),
-                      SizedBox(height: Dimensions.height20,),
-                      BigText(name: 'Introduce'),
+                      SizedBox(height: Dimensions.height12,),
+                      BigText(name: 'Introduce', size: Dimensions.height18),
                     ],
                   )
 
@@ -82,8 +82,8 @@ class _PopularFoodPageState extends State<PopularFoodPage> {
           ],),
 
         bottomNavigationBar: Container(
-          height: Dimensions.height120,
-          padding: EdgeInsets.symmetric(horizontal: Dimensions.width20, vertical: Dimensions.height30),
+          height: Dimensions.height100,
+          padding: EdgeInsets.symmetric(horizontal: Dimensions.width20, vertical: Dimensions.height15),
           decoration: BoxDecoration(
             color: AppColors.buttonBackgroundColor,
             borderRadius: BorderRadius.only(
@@ -95,29 +95,39 @@ class _PopularFoodPageState extends State<PopularFoodPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: Dimensions.width100,
-                height: Dimensions.height100,
+                width: Dimensions.width75,
+                height: Dimensions.height60,
                 decoration: BoxDecoration(
                   color: AppColors.yellowColor,
-                  borderRadius: BorderRadius.circular(Dimensions.radius20)
+                  borderRadius: BorderRadius.circular(Dimensions.radius15)
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.maximize_rounded, size: Dimensions.icon20,),
-                    BigText(name: '0', size: Dimensions.height45,),
-                    Icon(Icons.add, size: Dimensions.icon20),
+                    Icon(Icons.remove, size: Dimensions.icon15,),
+                    SizedBox(width: Dimensions.width10,),
+                    BigText(name: '0', size: Dimensions.height25,),
+                    SizedBox(width: Dimensions.width10,),
+                    Icon(Icons.add, size: Dimensions.icon15),
 
                   ],
                 ),
               ),
               Container(
                 width: Dimensions.width200,
-                // height: Dimensions.height100,
+                height: Dimensions.height60,
                 decoration: BoxDecoration(
                     color: AppColors.mainColor,
-                    borderRadius: BorderRadius.circular(Dimensions.radius20)
+                    borderRadius: BorderRadius.circular(Dimensions.radius15)
                 ),
+                child: Center(
+                    child: SmallText(
+                        name: '\$0.07 Add to cart',
+                        color: AppColors.mainWhiteColor,
+                        size: Dimensions.height20,
+                    )),
               )
             ],
           ),

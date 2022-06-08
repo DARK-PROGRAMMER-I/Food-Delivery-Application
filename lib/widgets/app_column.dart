@@ -16,7 +16,7 @@ class AppColumn extends StatelessWidget {
       children: [
         Container(
             margin: EdgeInsets.only(top: Dimensions.height20),
-            child: BigText(name: "$text", size: Dimensions.height40,)
+            child: BigText(name: "$text", )
         ),
         SizedBox(
           height: Dimensions.height15,
@@ -25,26 +25,27 @@ class AppColumn extends StatelessWidget {
             children: [
               Wrap(
                 children: List.generate( 5, (index) =>
-                    Icon(Icons.star, color: AppColors.mainColor, size: Dimensions.icon24,)
+                    Icon(Icons.star, color: AppColors.mainColor, size: Dimensions.icon15,)
                 ),
               ),
               Wrap(
+                // spacing: Dimensions.width10,
                 children: [
                   SizedBox(width: Dimensions.width15,),
-                  SmallText("4.5", Dimensions.height25, ),
+                  SmallText(name: "4.5",size:  Dimensions.height15, ),
                   SizedBox(width:  Dimensions.width15,),
-                  SmallText("1287  Comments", Dimensions.height25, ),
+                  SmallText(name: "1287  Comments", size:Dimensions.height15, ),
                 ],
               ),
             ]
         ),
-        SizedBox(height: Dimensions.height20
+        SizedBox(height: Dimensions.height15
           ,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconAndText(
-              iconSize: Dimensions.icon24,
+              iconSize: Dimensions.icon20,
               icon: Icons.circle,
               text: 'Normal',
               iconColor: AppColors.yellowColor,

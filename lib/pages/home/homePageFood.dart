@@ -36,7 +36,7 @@ class _FoodHomePageState extends State<FoodHomePage> {
                         Row(
                           // crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SmallText('Islamabad', 15 ,Colors.black54),
+                            SmallText(name: 'Islamabad',size:  15 ,color: Colors.black54),
                             IconButton(
                               // iconSize: 20,
                                 splashColor: AppColors.mainWhiteColor,

@@ -48,16 +48,19 @@ class Dimensions{
   static double width120 = pageWidth / 3.2;
   static double width200 = pageWidth / 1.96;
   static double width210 = pageWidth / 1.86 ;
+  static double width75 = pageWidth / 5.2 ;
 
 // Text size
-  static double bigText= pageHeight / 43;
-  static double smallText = pageHeight / 70;
+  static double bigText= pageHeight / 40;
+  static double smallText = pageHeight / 60;
   // For radius
   static double radius20 = pageHeight / 42.2;
   static double radius10 = pageHeight / 86.2;
   static double radius25 = pageHeight / 34;
   static double radius15 = pageHeight / 57.4;
   // icons size
+  static double icon15 = pageHeight /57.3 ;
+  static double icon18 = pageHeight /47.8 ;
   static double icon20 = pageHeight /42.0 ;
   static double icon24 = pageHeight /35.9 ;
   // square

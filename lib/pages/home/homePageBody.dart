@@ -67,11 +67,11 @@ class _HomePageBodyState extends State<HomePageBody> {
               SizedBox(width: Dimensions.width5,),
               Container(
                   margin: EdgeInsets.only(bottom: 2),
-                  child: SmallText('.' , 15, Colors.black)),
+                  child: SmallText(name: '.' , size:15, color: Colors.black)),
               SizedBox(width: Dimensions.width5,),
               Container(
                   margin: EdgeInsets.only(top: 2),
-                  child: SmallText(' Food pricing'))
+                  child: SmallText(name: ' Food pricing'))
             ],
           ),
         ),
@@ -122,9 +122,10 @@ class _HomePageBodyState extends State<HomePageBody> {
                             children: [
                               BigText(name: 'Nutrius Fruit Meal for Dinner'),
                               SizedBox(height: Dimensions.height5,),
-                              SmallText('With chines characteristics'),
+                              SmallText(name: 'With chines characteristics'),
                               SizedBox(height: Dimensions.height5,),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   IconAndText(
                                     iconSize: Dimensions.icon20,
@@ -222,9 +223,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                             spacing: 5,
                             children: [
                               SizedBox(width: Dimensions.width5,),
-                              SmallText('4.5', Dimensions.height12 ),
+                              SmallText(name: '4.5', size:  Dimensions.height12 ),
 
-                              SmallText('1287  comments', Dimensions.height12)
+                              SmallText(name:'1287  comments', size:Dimensions.height12)
                             ],
                           )
 
