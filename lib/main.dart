@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/pages/home/homePageFood.dart';
 import 'package:food_delivery_app/pages/popularFood.dart';
 import 'package:get/get.dart';
@@ -13,13 +14,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Food App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: PopularFoodPage(),
+    return ScreenUtilInit(
+        designSize: const Size(375, 812),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (BuildContext context, Widget? child) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Food App',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            home: FoodHomePage(),
+          );
+        }
     );
   }
 }

@@ -45,13 +45,18 @@ class _PopularFoodPageState extends State<PopularFoodPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconsBack(
-                    icon: Icons.arrow_back_ios,
-                    size: Dimensions.height35,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: IconsBack(
+                      icon: Icons.arrow_back_ios,
+                      back_size: Dimensions.height35,
+                    ),
                   ),
                   IconsBack(
                     icon: Icons.shopping_cart_outlined,
-                    size: Dimensions.height35,
+                    back_size: Dimensions.height35,
                   ),
                 ],
               ),

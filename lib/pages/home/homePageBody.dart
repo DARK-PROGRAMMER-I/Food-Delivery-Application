@@ -1,6 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/food/recommended_food_details.dart';
+import 'package:food_delivery_app/pages/popularFood.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
@@ -34,14 +36,14 @@ class _HomePageBodyState extends State<HomePageBody> {
       children: [
         // Slider Section
         Container(
-          // color: Colors.red,
           height: Dimensions.pageView,
           child: PageView.builder(
               controller: pageController,
               itemCount: 5,
               itemBuilder: (context , position){
                 return _buildPageItem(position);
-              }),
+              },
+          ),
         ),
         // Dots
         DotsIndicator(
@@ -103,53 +105,58 @@ class _HomePageBodyState extends State<HomePageBody> {
                     ),
                     // Body of Container
                     Expanded(
-                      child: Container(
-                        // width: Dimensions.width210,
-                        height: Dimensions.height100,
-                        margin: EdgeInsets.only(left: Dimensions.width10),
-                        decoration: BoxDecoration(
-                          // color: Colors.orangeAccent,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(Dimensions.radius20),
-                            bottomLeft: Radius.circular(Dimensions.radius20),
-                          )
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.only(left: Dimensions.width10, top: Dimensions.height5),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              BigText(name: 'Nutrius Fruit Meal for Dinner'),
-                              SizedBox(height: Dimensions.height5,),
-                              SmallText(name: 'With chines characteristics'),
-                              SizedBox(height: Dimensions.height5,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  IconAndText(
-                                    iconSize: Dimensions.icon20,
-                                    icon: Icons.circle,
-                                    text: 'Normal',
-                                    iconColor: AppColors.yellowColor,
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=> RecommendedFoodDetails()));
+                        },
+                        child: Container(
+                          // width: Dimensions.width210,
+                          height: Dimensions.height100,
+                          margin: EdgeInsets.only(left: Dimensions.width10),
+                          decoration: BoxDecoration(
+                            // color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(Dimensions.radius20),
+                              bottomLeft: Radius.circular(Dimensions.radius20),
+                            )
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(left: Dimensions.width10, top: Dimensions.height5),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                BigText(name: 'Nutrius Fruit Meal for Dinner'),
+                                SizedBox(height: Dimensions.height5,),
+                                SmallText(name: 'With chines characteristics'),
+                                SizedBox(height: Dimensions.height5,),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    IconAndText(
+                                      iconSize: Dimensions.icon20,
+                                      icon: Icons.circle,
+                                      text: 'Normal',
+                                      iconColor: AppColors.yellowColor,
 
-                                  ),
-                                  IconAndText(
-                                    iconSize: Dimensions.icon20,
-                                    icon: Icons.place,
-                                    text: '1.7km',
-                                    iconColor: AppColors.mainColor,
+                                    ),
+                                    IconAndText(
+                                      iconSize: Dimensions.icon20,
+                                      icon: Icons.place,
+                                      text: '1.7km',
+                                      iconColor: AppColors.mainColor,
 
-                                  ),IconAndText(
-                                    iconSize: Dimensions.icon20,
-                                    icon: Icons.timer,
-                                    text: '18mins',
-                                    iconColor: Colors.redAccent,
+                                    ),IconAndText(
+                                      iconSize: Dimensions.icon20,
+                                      icon: Icons.timer,
+                                      text: '18mins',
+                                      iconColor: Colors.redAccent,
 
-                                  )
-                                ],
-                              )
-                            ],
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -205,71 +212,73 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ),
                     ]
                     ),
-                child: Container(
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=> PopularFoodPage()));
+                  },
+                  child: Container(
 
-                  padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BigText(name: 'Chinese Food'),
-                      SizedBox(height: Dimensions.height20,),
-                      Row(
-                        children: [
-                          Wrap(
-                          children: List.generate(5, (index) => Icon(
-                            Icons.star, color: AppColors.mainColor,size: Dimensions.height12,)),
-                        ),
-                          Wrap(
-                            spacing: 5,
-                            children: [
-                              SizedBox(width: Dimensions.width5,),
-                              SmallText(name: '4.5', size:  Dimensions.height12 ),
-
-                              SmallText(name:'1287  comments', size:Dimensions.height12)
-                            ],
-                          )
-
-                        ],
-                      ),
-                      SizedBox(height: Dimensions.height15,),
-                      Wrap(
-
-                        children: [ Row(
+                    padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        BigText(name: 'Chinese Food'),
+                        SizedBox(height: Dimensions.height20,),
+                        Row(
                           children: [
-                            IconAndText(
-                                iconSize: Dimensions.height18,
-                                icon: Icons.circle,
-                                text: 'Normal',
-                                iconColor: AppColors.yellowColor,
+                            Wrap(
+                            children: List.generate(5, (index) => Icon(
+                              Icons.star, color: AppColors.mainColor,size: Dimensions.height12,)),
+                          ),
+                            Wrap(
+                              spacing: 5,
+                              children: [
+                                SizedBox(width: Dimensions.width5,),
+                                SmallText(name: '4.5', size:  Dimensions.height12 ),
 
-                            ),
-                            IconAndText(
-                                iconSize: Dimensions.height18,
-                                icon: Icons.place,
-                                text: '1.7km',
-                                iconColor: AppColors.mainColor,
-
-                            ),IconAndText(
-                                iconSize: Dimensions.height18,
-                                icon: Icons.timer,
-                                text: '18mins',
-                                iconColor: Colors.redAccent,
-
+                                SmallText(name:'1287  comments', size:Dimensions.height12)
+                              ],
                             )
-
 
                           ],
                         ),
-                        ],),
-                    ],
+                        SizedBox(height: Dimensions.height15,),
+                        Wrap(
+
+                          children: [ Row(
+                            children: [
+                              IconAndText(
+                                  iconSize: Dimensions.height18,
+                                  icon: Icons.circle,
+                                  text: 'Normal',
+                                  iconColor: AppColors.yellowColor,
+
+                              ),
+                              IconAndText(
+                                  iconSize: Dimensions.height18,
+                                  icon: Icons.place,
+                                  text: '1.7km',
+                                  iconColor: AppColors.mainColor,
+
+                              ),IconAndText(
+                                  iconSize: Dimensions.height18,
+                                  icon: Icons.timer,
+                                  text: '18mins',
+                                  iconColor: Colors.redAccent,
+
+                              )
+
+
+                            ],
+                          ),
+                          ],),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-
-          ],);
+          ],
+    );
   }
-
-    // return Row();
-
 }
