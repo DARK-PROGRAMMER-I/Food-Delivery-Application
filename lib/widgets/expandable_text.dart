@@ -31,7 +31,7 @@ class _ExpandableTextState extends State<ExpandableText> {
     return Container(
       child: islengthy? Column(
         children: [
-          SmallText(name: firstHalf+ '...'),
+          SmallText(name: firstHalf+ '...',color: Colors.black54 ),
           InkWell(
             onTap: (){
               setState(() {
@@ -40,13 +40,13 @@ class _ExpandableTextState extends State<ExpandableText> {
             },
             child: Row(
               children: [
-                SmallText(name: 'Show more', color: AppColors.mainColor,),
+                SmallText(name: 'Show more',color: AppColors.mainColor,),
                 islengthy? Icon(Icons.arrow_drop_down): Icon(Icons.arrow_drop_up)
               ],
             ),
           )
         ],
-      ): SmallText(name: firstHalf+secondHalf),
+      ): SmallText(name: firstHalf+secondHalf,color: Colors.black54),
     );
   }
 }
