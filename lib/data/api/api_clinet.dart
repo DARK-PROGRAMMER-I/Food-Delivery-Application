@@ -14,4 +14,17 @@ class ApiClient extends GetConnect implements GetxService{
       'Authorization': 'Bearer $token'
     };
   }
+
+
+  Future<Response> getData(Uri url)async{
+    try{
+      Response response = await get(url.toString());
+      return response;
+    }catch(e){
+      return Response(
+          statusCode: 1,
+          statusText: e.toString()
+      );
+    }
+  }
 }
