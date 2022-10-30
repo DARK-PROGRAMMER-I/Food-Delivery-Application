@@ -49,6 +49,7 @@ class Dimensions{
   static double width200 = pageWidth / 1.96;
   static double width210 = pageWidth / 1.86 ;
   static double width75 = pageWidth / 5.2 ;
+  static double width320 = pageWidth / (320/pageWidth) ;
 
 // Text size
   static double bigText= pageHeight / 40;

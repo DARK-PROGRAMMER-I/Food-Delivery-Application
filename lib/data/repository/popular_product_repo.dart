@@ -1,4 +1,5 @@
 import 'package:food_delivery_app/data/api/api_clinet.dart';
+import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:get/get.dart';
 
 class PopularProductRepo extends GetxService{
@@ -6,6 +7,6 @@ class PopularProductRepo extends GetxService{
   PopularProductRepo({required this.apiClient});
 
   Future<Response> getPopularProductList()async{
-    return await apiClient.getData(Uri.parse('https://www.relexai.com'));
+    return await apiClient.getData(Uri.parse(AppConstants.POP_PROD_URI));
   }
 }
