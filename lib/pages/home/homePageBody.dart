@@ -95,10 +95,11 @@ class _HomePageBodyState extends State<HomePageBody> {
          GetBuilder<RecommendedProductsCtr>(
              builder: (recProductList){
 
-               return ListView.builder(
+               return recProductList.recProductList.length == 0 ? CircularProgressIndicator()
+               :ListView.builder(
                    physics: NeverScrollableScrollPhysics(),
                    shrinkWrap: true,
-                   itemCount: recProductList.recProductList.length == 0 ? 1 : recProductList.recProductList.length,
+                   itemCount: recProductList.recProductList.length,
                    itemBuilder: (context , index){
                      return Container(
                        // height: Dimensions.height30,
@@ -153,7 +154,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                                      children: [
                                        BigText(name: recProductList.recProductList[index].name!),
                                        SizedBox(height: Dimensions.height5,),
-                                       SmallText(name: recProductList.recProductList[index].description!, ),
+                                       SmallText(name: recProductList.recProductList[index].description!, textWrap: true  , ),
                                        SizedBox(height: Dimensions.height5,),
                                        Row(
                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,

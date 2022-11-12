@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
 
 class SmallText extends StatelessWidget {
@@ -7,11 +6,14 @@ class SmallText extends StatelessWidget {
   Color color ;
   double size = 0;
   double height;
+  bool textWrap;
   SmallText(
       {required this.name,
       this.size = 0,
       this.color = const Color(0xFFccc7c5),
-      this.height = 1.2});
+      this.height = 1.2,
+      this.textWrap = false,
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class SmallText extends StatelessWidget {
       style: TextStyle(
         fontSize: size  == 0 ? Dimensions.smallText : size != 0 ? Dimensions.pageHeight / (860/size): size ,
         color: color , fontFamily: 'Roboto', height: height,  ),
-      overflow: TextOverflow.ellipsis,
+      overflow: textWrap ? TextOverflow.ellipsis : TextOverflow.visible,
     );
   }
 }

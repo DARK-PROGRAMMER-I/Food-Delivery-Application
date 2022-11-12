@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/controllers/popularProductsCtr.dart';
 import 'package:food_delivery_app/controllers/recommended_product_ctr.dart';
 import 'package:food_delivery_app/pages/home/homePageFood.dart';
-import 'package:food_delivery_app/pages/popularFood.dart';
 import 'package:get/get.dart';
 
 import 'helper/dependencies.dart' as dep;

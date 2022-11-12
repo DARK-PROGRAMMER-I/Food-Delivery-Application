@@ -18,8 +18,7 @@ class RecommendedProductsCtr extends GetxController{
     if(response.status.code == 200){
       _recProductList = [];
       _recProductList.addAll(Product.fromJson(response.body).products);
-      print(_recProductList[0]);
-
+      // print(_recProductList[0]);
       update();
     }else{
       print('NO Data');
