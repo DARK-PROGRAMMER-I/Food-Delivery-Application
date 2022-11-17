@@ -7,6 +7,7 @@ import 'package:food_delivery_app/controllers/recommended_product_ctr.dart';
 import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/pages/food/recommended_food_details.dart';
 import 'package:food_delivery_app/pages/popularFood.dart';
+import 'package:food_delivery_app/routes/route_helper.dart';
 import 'package:food_delivery_app/utils/app_constants.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
@@ -57,8 +58,9 @@ class _HomePageBodyState extends State<HomePageBody> {
         GetBuilder<PopularProductsCtr>(
             builder: (popCtr){
 
-              return DotsIndicator(
-                dotsCount: popCtr.popProductList.length == 0 ? 1:popCtr.popProductList.length ,
+              return popCtr.popProductList.length == 0 ? CircularProgressIndicator():
+              DotsIndicator(
+                dotsCount: popCtr.popProductList.length ,
                 position: pageValue!,
                 decorator: DotsDecorator(
                     activeColor: AppColors.mainColor,
@@ -105,36 +107,37 @@ class _HomePageBodyState extends State<HomePageBody> {
                        // height: Dimensions.height30,
                        margin: EdgeInsets.symmetric(horizontal: Dimensions.width20 ),
                        padding: EdgeInsets.only(bottom: Dimensions.height15),
-                       child: Row(
-                         children: [
-                           // Image Section
-                           Container(
-                             width: Dimensions.width120,
-                             height: Dimensions.height120,
-                             decoration: BoxDecoration(
-                                 color: AppColors.mainColor,
-                                 borderRadius: BorderRadius.circular(Dimensions.radius25)
-                             ),
-                             child: ClipRRect(
-                               borderRadius: BorderRadius.circular(Dimensions.radius25),
-                               child: CachedNetworkImage(
-                                 fit: BoxFit.cover,
-                                 imageUrl: '${AppConstants.BASE_URL +'/uploads/' + recProductList.recProductList[index].img!}',
-                                 placeholder: (context, url) =>
-                                     Container(
-                                       alignment: Alignment.center,
-                                       child: CircularProgressIndicator(color: Colors.amber,),
-                                     ),
-                                 errorWidget: (context, url, error) => Icon(Icons.error),
+                       child: GestureDetector(
+                         onTap: (){
+                           Get.toNamed(RouteHelper.recommended);
+                           print("Tapped");
+                         },
+                         child: Row(
+                           children: [
+                             // Image Section
+                             Container(
+                               width: Dimensions.width120,
+                               height: Dimensions.height120,
+                               decoration: BoxDecoration(
+                                   color: AppColors.mainColor,
+                                   borderRadius: BorderRadius.circular(Dimensions.radius25)
+                               ),
+                               child: ClipRRect(
+                                 borderRadius: BorderRadius.circular(Dimensions.radius25),
+                                 child: CachedNetworkImage(
+                                   fit: BoxFit.cover,
+                                   imageUrl: '${AppConstants.BASE_URL +'/uploads/' + recProductList.recProductList[index].img!}',
+                                   placeholder: (context, url) =>
+                                       Container(
+                                         alignment: Alignment.center,
+                                         child: CircularProgressIndicator(color: Colors.amber,),
+                                       ),
+                                   errorWidget: (context, url, error) => Icon(Icons.error),
+                                 ),
                                ),
                              ),
-                           ),
-                           // Body of Container
-                           Expanded(
-                             child: GestureDetector(
-                               onTap: (){
-                                 Navigator.push(context, MaterialPageRoute(builder: (_)=> RecommendedFoodDetails()));
-                               },
+                             // Body of Container
+                             Expanded(
                                child: Container(
                                  // width: Dimensions.width210,
                                  height: Dimensions.height100,
@@ -185,9 +188,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                                    ),
                                  ),
                                ),
-                             ),
-                           )
-                         ],
+                             )
+                           ],
+                         ),
                        ),
                      );
                    });
@@ -200,124 +203,130 @@ class _HomePageBodyState extends State<HomePageBody> {
   Widget _buildPageItem(int index , ProductModel popModel){
 
     double width10 = Dimensions.width10;
-    return Stack(
-          children: [
-            Container(
-                    height: Dimensions.pageViewContainer,
-                    width: Dimensions.width320,
-                    margin: EdgeInsets.only(left: width10 , right: width10),
-                    decoration: BoxDecoration(
-                      color: index.isEven ? Colors.purple : Colors.indigo,
-                      borderRadius: BorderRadius.circular(Dimensions.radius25),
+    return GestureDetector(
+      onTap: (){
+        Get.toNamed(RouteHelper.popular, arguments: index);
+        print("Tapped pop");
+      },
+      child: Stack(
+            children: [
+              Container(
+                      height: Dimensions.pageViewContainer,
+                      width: Dimensions.width320,
+                      margin: EdgeInsets.only(left: width10 , right: width10),
+                      decoration: BoxDecoration(
+                        color: index.isEven ? Colors.purple : Colors.indigo,
+                        borderRadius: BorderRadius.circular(Dimensions.radius25),
 
-                    ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(Dimensions.radius25),
-                child: CachedNetworkImage(
-                  fit: BoxFit.cover,
-                  imageUrl: '${AppConstants.BASE_URL +'/uploads/' + popModel.img!}',
-                  placeholder: (context, url) =>
-                      Container(
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator(color: Colors.amber,),
                       ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(Dimensions.radius25),
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: '${AppConstants.BASE_URL +'/uploads/' + popModel.img!}',
+                    placeholder: (context, url) =>
+                        Container(
+                          alignment: Alignment.center,
+                          child: CircularProgressIndicator(color: Colors.amber,),
+                        ),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  ),
                 ),
               ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: Dimensions.pageCommentsConatiner,
-                // width: 280,
-                margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height30),
-                decoration: BoxDecoration(
-                    color: AppColors.mainWhiteColor,
-                    borderRadius: BorderRadius.circular(Dimensions.radius25),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 8,
-                        offset: Offset(0, 5),
-                      ),
-                      BoxShadow(
-                        color: Colors.white,
-                        // blurRadius: 5,
-                        offset: Offset(5, 0)
-                      ),
-                      BoxShadow(
-                        color: Colors.white,
-                        offset: Offset(-5, 0)
-                      ),
-                    ]
-                    ),
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (_)=> PopularFoodPage()));
-                  },
-                  child: Container(
-
-                    padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        BigText(name: popModel.name!),
-                        SizedBox(height: Dimensions.height20,),
-                        Row(
-                          children: [
-                            Wrap(
-                            children: List.generate(popModel.stars!, (index) => Icon(
-                              Icons.star, color: AppColors.mainColor,size: Dimensions.height12,)),
-                          ),
-                            Wrap(
-                              spacing: 5,
-                              children: [
-                                SizedBox(width: Dimensions.width5,),
-                                SmallText(name: popModel.stars.toString(), size:  Dimensions.height12 ),
-
-                                SmallText(name:'1287  comments', size:Dimensions.height12)
-                              ],
-                            )
-
-                          ],
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  height: Dimensions.pageCommentsConatiner,
+                  // width: 280,
+                  margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height30),
+                  decoration: BoxDecoration(
+                      color: AppColors.mainWhiteColor,
+                      borderRadius: BorderRadius.circular(Dimensions.radius25),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 8,
+                          offset: Offset(0, 5),
                         ),
-                        SizedBox(height: Dimensions.height15,),
-                        Wrap(
+                        BoxShadow(
+                          color: Colors.white,
+                          // blurRadius: 5,
+                          offset: Offset(5, 0)
+                        ),
+                        BoxShadow(
+                          color: Colors.white,
+                          offset: Offset(-5, 0)
+                        ),
+                      ]
+                      ),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=> PopularFoodPage()));
+                    },
+                    child: Container(
 
-                          children: [ Row(
+                      padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          BigText(name: popModel.name!),
+                          SizedBox(height: Dimensions.height20,),
+                          Row(
                             children: [
-                              IconAndText(
-                                  iconSize: Dimensions.height18,
-                                  icon: Icons.circle,
-                                  text: 'Normal',
-                                  iconColor: AppColors.yellowColor,
+                              Wrap(
+                              children: List.generate(popModel.stars!, (index) => Icon(
+                                Icons.star, color: AppColors.mainColor,size: Dimensions.height12,)),
+                            ),
+                              Wrap(
+                                spacing: 5,
+                                children: [
+                                  SizedBox(width: Dimensions.width5,),
+                                  SmallText(name: popModel.stars.toString(), size:  Dimensions.height12 ),
 
-                              ),
-                              IconAndText(
-                                  iconSize: Dimensions.height18,
-                                  icon: Icons.place,
-                                  text: '1.7km',
-                                  iconColor: AppColors.mainColor,
-
-                              ),IconAndText(
-                                  iconSize: Dimensions.height18,
-                                  icon: Icons.timer,
-                                  text: '18mins',
-                                  iconColor: Colors.redAccent,
-
+                                  SmallText(name:'1287  comments', size:Dimensions.height12)
+                                ],
                               )
-
 
                             ],
                           ),
-                          ],),
-                      ],
+                          SizedBox(height: Dimensions.height15,),
+                          Wrap(
+
+                            children: [ Row(
+                              children: [
+                                IconAndText(
+                                    iconSize: Dimensions.height18,
+                                    icon: Icons.circle,
+                                    text: 'Normal',
+                                    iconColor: AppColors.yellowColor,
+
+                                ),
+                                IconAndText(
+                                    iconSize: Dimensions.height18,
+                                    icon: Icons.place,
+                                    text: '1.7km',
+                                    iconColor: AppColors.mainColor,
+
+                                ),IconAndText(
+                                    iconSize: Dimensions.height18,
+                                    icon: Icons.timer,
+                                    text: '18mins',
+                                    iconColor: Colors.redAccent,
+
+                                )
+
+
+                              ],
+                            ),
+                            ],),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+      ),
     );
   }
 }
